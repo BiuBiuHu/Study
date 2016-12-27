@@ -7,19 +7,8 @@ function start(route,handler){
 		var postData = "";
 		var pathname = url.parse(request.url).pathname;
 		console.log("Required for" + pathname + " received.");
-
-		request.setEncoding("utf8");
 		
-		// route(handler,pathname,response);
-		request.addListener("data", function(postDataChunk) {
-    		postData += postDataChunk;
-    		console.log("Received POST data chunk '"+
-    		postDataChunk + "'.");
-    	});
-
-	    request.addListener("end", function() {
-	    	route(handler, pathname, response, postData);
-	    });
+		route(handler,pathname,response,request);
 	}
 
 	//函数作为参数传递
