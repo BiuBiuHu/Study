@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单内容学习</title>
+    <script src="js/lib/vue.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div id="example-2">
+
+        <div>
+            <input v-model="message" placeholder="edit me">
+            <p>Message is: {{ message }}</p>
+        </div>
+        <div>
+            <p>多行文本</p>
+            <span>Multiline message is:</span>
+            <p style="white-space: pre">{{ messageText }}</p>
+            <br>
+            <textarea v-model="messageText" placeholder="add multiple lines"></textarea>
+        </div>
+        <div>
+            <p>单个勾选框</p>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+        </div>
+        <div>
+            <p>多个勾选框</p>
+            <input type="checkbox" id="jack0" value="Jack0" v-model="checkedNames">
+            <label for="jack0">Jack</label>
+            <input type="checkbox" id="jack1" value="Jack1" v-model="checkedNames">
+            <label for="jack1">Jack</label>
+            <input type="checkbox" id="jack2" value="Jack2" v-model="checkedNames">
+            <label for="jack2">Jack</label>
+            <input type="checkbox" id="jack3" value="Jack3" v-model="checkedNames">
+            <label for="jack3">Jack</label>
+            <br>
+            <span>Checked names: {{ checkedNames }}</span>
+        </div>
+        <div>
+            <input type="radio" id="one" value="One" v-model="picked">
+            <label for="one">One</label>
+            <br>
+            <input type="radio" id="two" value="Two" v-model="picked">
+            <label for="two">Two</label>
+            <br>
+            <span>Picked: {{ picked }}</span>
+        </div>
+        <div>
+            <select v-model="selected">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected: {{ selected }}</span>
+        </div>
+        <div>
+            <select v-model="selecteds" multiple>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected: {{ selecteds }}</span>
+        </div>
+        <div>
+            <select v-model="selected2">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>Selected: {{ selected2 }}</span>
+        </div>
+        <div>
+            <p>绑定value</p>
+            <!-- 当选中时，`picked` 为字符串 "a" -->
+            <input type="radio" v-model="picked" value="a">
+            <!-- `toggle` 为 true 或 false -->
+            <input type="checkbox" v-model="toggle">
+            <!-- 当选中时，`selected` 为字符串 "abc" -->
+            <select v-model="selected3">
+                <option value="abc">ABC</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="example-3">
+
+    </div>
+</div>
+</body>
+<script type="application/javascript">
+    new Vue({
+        el: '#example-2',
+        data: {
+            picked:'',
+            toggle:'',
+            selected3:[],
+            selected2: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ],
+            selecteds:[],
+            selected:'',
+            picked:'',
+            checked:'',
+            messageText:'123',
+            message:'',
+            checkedNames: []
+        }
+    });
+
+</script>
+</html>
