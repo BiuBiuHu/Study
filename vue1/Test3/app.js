@@ -24,12 +24,6 @@ new Vue({
             console.log(1,this.book.id);
         }
     },
-    // mounted: function () {
-    //     this.$http.get('book.json',function (data) {
-    //         console.log(1);
-    //         this.$set(this,'books',data);
-    //     });
-    // },
     mounted: function(){
         this.$http.post('book.json',{
             params:{
